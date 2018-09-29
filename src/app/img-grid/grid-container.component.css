@@ -1,0 +1,26 @@
+.grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
+}
+
+#search-overlay {
+  position: absolute;
+  top: 5em;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: 40%;
+}
+
+#search-overlay input {
+  border: solid;
+}
+
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+}
