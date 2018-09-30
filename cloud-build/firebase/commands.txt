@@ -1,0 +1,5 @@
+========================================
+Build and Push Image
+========================================
+
+gcloud builds submit --config=cloudbuild.yaml .

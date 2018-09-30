@@ -9,8 +9,7 @@ steps:
     args: ['run', 'build:staging']
 
   - name: 'gcr.io/$PROJECT_ID/firebase'
-    entrypoint: 'firebase'
-    args: ['deploy', '--token $$FIREBASE_TOKEN', '--project staging']
+    args: ['deploy', '--project', 'staging', '--token', '$$FIREBASE_TOKEN']
     secretEnv: ['FIREBASE_TOKEN']
 
 secrets:
