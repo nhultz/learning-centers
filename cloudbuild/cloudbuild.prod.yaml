@@ -1,0 +1,18 @@
+steps:
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'lint']
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build:prod']
+
+  - name: 'gcr.io/$PROJECT_ID/firebase'
+    args: ['deploy', '--project', 'learning-centers']
+    secretEnv: ['FIREBASE_TOKEN']
+
+secrets:
+  - kmsKeyName: 'projects/learning-centers-staging/locations/global/keyRings/cloudbuilder/cryptoKeys/firebase-token'
+    secretEnv:
+      FIREBASE_TOKEN: 'CiQA56ywkCYHg1skzSI4ToWDz1LbwmYm2MISvXb1RgGE618dIx0SVgBWE9Vyiio3N4+9wU61REcI+12mldIGyE/gLCezAcBdw7o5/QZIa3pCjsehcNX1sDFxuiJF7sCo/bjNe/oBREgRm4SCvvLkex2Q9D512nTGKj49Rsf8'
