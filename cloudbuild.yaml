@@ -15,4 +15,4 @@ steps:
 secrets:
   - kmsKeyName: 'projects/learning-centers-staging/locations/global/keyRings/cloudbuilder/cryptoKeys/firebase-token'
     secretEnv:
-      FIREBASE_TOKEN: 'CiQA56ywkHtWo8YkU99gQ/fampmljkGqKTa/806YL9YTCD7gxMQSawBWE9VyjShd0e9udI7WTbzWXQ6MRi/W4KOS1oT/quhmsnidKefbv2kx70JeDSH7OJKUZ5ki1skXXakBgeTh5Pxz3zof+GIooo2/mPEGP3CLVHwvEZkytkhDQYNfuHcBqZ6fAb70xhTmj4v5'
+      FIREBASE_TOKEN: 'CiQA56ywkO0EgJOP91RBmCxHq+nqavuc/Z8Ey0jUuq0yDjxoWgESawBWE9VymSCU4FESAqfuKH4BePSNDaa8uFajQahrNgYXNQkqQ6hB4WGgRqW1nKsU/mAEdZFYpFbbV2gTF3Bs5NsYpz93K0zcjor1Z0265E7+mcwDHCfgtP3QvAGNFWbc0fizilKw0tK2ICF/'
