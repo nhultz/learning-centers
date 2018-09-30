@@ -3,5 +3,6 @@ FROM node:boron
 
 # install Firebase CLI
 RUN npm install -g firebase-tools
+COPY firebase.bash .
 
-ENTRYPOINT ["/usr/local/bin/firebase"]
+ENTRYPOINT ["/firebase.bash"]

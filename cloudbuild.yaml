@@ -9,17 +9,10 @@ steps:
     args: ['run', 'build:staging']
 
   - name: 'gcr.io/$PROJECT_ID/firebase'
-    args:
-      [
-        'deploy',
-        '--project',
-        'learning-centers-staging',
-        '--token',
-        '$$FIREBASE_TOKEN',
-      ]
+    args: ['deploy', '--project', 'learning-centers-staging']
     secretEnv: ['FIREBASE_TOKEN']
 
 secrets:
   - kmsKeyName: 'projects/learning-centers-staging/locations/global/keyRings/cloudbuilder/cryptoKeys/firebase-token'
     secretEnv:
-      FIREBASE_TOKEN: 'CiQA56ywkO0EgJOP91RBmCxHq+nqavuc/Z8Ey0jUuq0yDjxoWgESawBWE9VymSCU4FESAqfuKH4BePSNDaa8uFajQahrNgYXNQkqQ6hB4WGgRqW1nKsU/mAEdZFYpFbbV2gTF3Bs5NsYpz93K0zcjor1Z0265E7+mcwDHCfgtP3QvAGNFWbc0fizilKw0tK2ICF/'
+      FIREBASE_TOKEN: 'CiQA56ywkCYHg1skzSI4ToWDz1LbwmYm2MISvXb1RgGE618dIx0SVgBWE9Vyiio3N4+9wU61REcI+12mldIGyE/gLCezAcBdw7o5/QZIa3pCjsehcNX1sDFxuiJF7sCo/bjNe/oBREgRm4SCvvLkex2Q9D512nTGKj49Rsf8'
