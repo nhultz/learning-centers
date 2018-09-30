@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "learning-centers-staging"
+    "staging": "learning-centers-staging",
+    "prod": "learning-centers"
   }
 }
