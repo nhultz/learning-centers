@@ -1,5 +1,5 @@
 <div class="card">
-  <img *ngIf="center; else addButton" src="{{ center.url | async }}" class="card-img">
+  <img class="img-fluid" *ngIf="center; else addButton" src="{{ center.url | async }}">
 
   <ng-template #addButton>
     <button class="btn" (click)="pickImage()"><i class="fa fa-plus fa-3x"></i></button>
