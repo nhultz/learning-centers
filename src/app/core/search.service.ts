@@ -2,37 +2,48 @@ import { Injectable } from '@angular/core';
 import { Center } from './models/center.model';
 
 import { Observable } from 'rxjs';
-import { debounceTime, map, distinctUntilChanged } from 'rxjs/operators';
-
-import * as lunr from 'lunr';
+import { debounceTime, map, distinctUntilChanged, take } from 'rxjs/operators';
+import { Builder, Index } from 'lunr';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  private centers: Center[] = [
-    {
-      category: 'math',
-      name: 'blocks',
-      url: 'assets/img/science.png'
-    },
-    {
-      category: 'math',
-      name: 'shapes',
-      url: 'assets/img/science.png'
-    }
-  ];
-
   private centersByRef: Map<string, Center> = new Map();
-  private idx: lunr.Index;
+  private idx: Index;
 
-  constructor() {
-    const builder = new lunr.Builder();
+  constructor(
+    private afStore: AngularFirestore,
+    private afStorage: AngularFireStorage
+  ) {
+    const centersCollection = afStore.collection<Center>('centers');
+    centersCollection
+      .valueChanges()
+      .pipe(
+        take(1),
+        map(col => this.transformStorageUrl(col))
+      )
+      .subscribe(col => this.buildIndex(col));
+  }
+
+  private transformStorageUrl(centers: Center[]): Center[] {
+    return centers.map(c => {
+      return {
+        ...c,
+        url: this.afStorage.ref(c.storageUrl).getDownloadURL()
+      };
+    });
+  }
+
+  private buildIndex(centers: Center[]) {
+    const builder = new Builder();
     builder.ref('name');
     builder.field('name');
     builder.field('category');
 
-    this.centers.forEach(c => {
+    centers.forEach(c => {
       this.centersByRef.set(c.name, c);
       builder.add(c);
     });
