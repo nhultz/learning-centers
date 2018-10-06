@@ -1,0 +1,13 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+#login-btn {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  color: #fff;
+  text-align: center;
+}
