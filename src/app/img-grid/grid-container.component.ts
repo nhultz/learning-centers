@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { PickerService, SearchService, Center } from '../core';
+import { SearchService, Center } from '../core';
 
 import { Subject, Subscription } from 'rxjs';
 
@@ -21,10 +21,7 @@ export class GridContainerComponent {
   searchSubScription: Subscription;
   searchResults: Center[];
 
-  constructor(
-    public pickerService: PickerService,
-    public searchService: SearchService
-  ) {}
+  constructor(public searchService: SearchService) {}
 
   onPickImageClicked(gridIndex: number) {
     this.selectedGridIdx = gridIndex;
