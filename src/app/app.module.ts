@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ImgGridModule } from './img-grid/img-grid.module';
+import { ManagementModule } from './management/management.module';
 
 @NgModule({
   imports: [
@@ -20,9 +21,10 @@ import { ImgGridModule } from './img-grid/img-grid.module';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    CoreModule,
     AppRoutingModule,
-    ImgGridModule
+    CoreModule,
+    ImgGridModule,
+    ManagementModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
