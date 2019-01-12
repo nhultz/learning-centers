@@ -1,11 +1,11 @@
 steps:
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'gcr.io/cloud-builders/yarn'
     args: ['install']
 
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'gcr.io/cloud-builders/yarn'
     args: ['run', 'lint']
 
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'gcr.io/cloud-builders/yarn'
     args: ['run', 'build:staging']
 
   - name: 'gcr.io/$PROJECT_ID/firebase'
