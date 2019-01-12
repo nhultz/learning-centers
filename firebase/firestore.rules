@@ -1,28 +1,11 @@
 service cloud.firestore {
   match /databases/{database}/documents {
-    function isSignedIn() {
-      return request.auth != null;
-    }
-
-    function isSameUser(uid) {
-      return isSignedIn() && request.auth.uid == uid;
-    }
-
-    function getRole(uid) {
-
-    }
-
-    function isOneOfRoles(uid, array) {
-      return isSignedIn() && (getRole(uid) in array);
-    }
-
     match /users/{uid} {
-    	allow read, write: if isSameUser(uid);
+    	allow read, write: if uid == request.auth.uid;
     }
 
     match /centers/{centerId} {
-    	allow read, write: if isOneOfRoles(request.auth.uid, ['admin']);
+    	allow read, write: if request.auth.uid != null;
     }
-
   }
 }
