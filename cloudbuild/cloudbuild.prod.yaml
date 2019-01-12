@@ -6,7 +6,7 @@ steps:
     args: ['run', 'lint']
 
   - name: 'gcr.io/cloud-builders/yarn'
-    args: ['run', 'build:prod']
+    args: ['run', 'build']
 
   - name: 'gcr.io/$PROJECT_ID/firebase'
     args: ['deploy', '--project', 'learning-centers']
